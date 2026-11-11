@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#06120d">
+<title>ƘƖƦƛ ƁƠƬ ƬЄƇӇ 🌹 • Appairage WhatsApp</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+  :root { --g: #00e676; --g2: #00c853; --cy: #7ae0ff; --txt: #f2fff8; --mut: rgba(235,255,245,.72); }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif; color: var(--txt); min-height: 100vh; padding: 22px 16px 34px; overflow-x: hidden; background: #06120d; }
+
+  /* ===== Fond + lumières (donnent de la matière à l'effet glace) ===== */
+  .bg { position: fixed; inset: 0; z-index: -3; background: url('https://i.ibb.co/Mybr6PT9/A01-C6-FAC-9-DB3-4008-BBD4-4493-ACF968-AE.jpg') center/cover no-repeat; }
+  .bg-shade { position: fixed; inset: 0; z-index: -2; background: radial-gradient(circle at 50% 0%, rgba(0,230,118,.10), transparent 55%), linear-gradient(180deg, rgba(3,10,8,.45), rgba(3,10,8,.78)); }
+  .orb { position: fixed; z-index: -1; border-radius: 50%; filter: blur(46px); opacity: .55; pointer-events: none; animation: drift 14s ease-in-out infinite alternate; }
+  .o1 { width: 280px; height: 280px; left: -60px; top: 12%; background: radial-gradient(circle, #00e676, transparent 70%); }
+  .o2 { width: 320px; height: 320px; right: -90px; top: 46%; background: radial-gradient(circle, #36c8ff, transparent 70%); animation-delay: -5s; }
+  .o3 { width: 240px; height: 240px; left: 30%; bottom: 4%; background: radial-gradient(circle, #8a6bff, transparent 70%); animation-delay: -9s; }
+  @keyframes drift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,-34px) scale(1.18); } }
+
+  /* ===== EFFET ICE 🧊 (verre givré type iPhone 12) ===== */
+  .ice { position: relative; isolation: isolate; border-radius: 30px; overflow: hidden;
+    background:
+      linear-gradient(135deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.10) 38%, rgba(190,255,225,.06) 62%, rgba(255,255,255,.20) 100%);
+    -webkit-backdrop-filter: blur(24px) saturate(190%) brightness(1.12) contrast(1.05);
+            backdrop-filter: blur(24px) saturate(190%) brightness(1.12) contrast(1.05);
+    border: 1px solid rgba(255,255,255,.42);
+    box-shadow:
+      inset 0 1.5px 0 rgba(255,255,255,.75),
+      inset 0 -1.5px 0 rgba(255,255,255,.14),
+      inset 1.5px 0 0 rgba(255,255,255,.28),
+      inset -1.5px 0 0 rgba(255,255,255,.16),
+      inset 0 0 38px rgba(255,255,255,.10),
+      0 24px 60px rgba(0,0,0,.50),
+      0 0 0 1px rgba(255,255,255,.04); }
+  /* grain de givre */
+  .ice::before { content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .5; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+  /* reflet glacé qui balaye */
+  .ice::after { content: ''; position: absolute; top: -60%; left: -40%; width: 60%; height: 220%; z-index: -1; pointer-events: none; transform: rotate(20deg);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.26), transparent); animation: sheen 7s ease-in-out infinite; }
+  @keyframes sheen { 0%, 55% { left: -60%; } 100% { left: 140%; } }
+  .ice-sm { border-radius: 20px; }
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .ice { background: rgba(16,40,30,.82); } }
+
+  .wrap { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+
+  /* ===== En-tête ===== */
+  .hero { padding: 34px 24px 26px; text-align: center; animation: rise .8s cubic-bezier(.2,.9,.3,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(26px) scale(.97); } to { opacity: 1; transform: none; } }
+  .brand { font-size: clamp(1.9rem, 7vw, 2.5rem); font-weight: 800; letter-spacing: 2px; color: var(--g); text-shadow: 0 0 26px rgba(0,230,118,.55), 0 2px 0 rgba(0,0,0,.25); }
+  .subtitle { margin-top: 6px; color: var(--mut); font-size: .98rem; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 7px 16px; border-radius: 40px; font-size: .8rem; font-weight: 500;
+    background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.18); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: #ff5a5a; box-shadow: 0 0 10px #ff5a5a; }
+  .dot.ok { background: var(--g); box-shadow: 0 0 12px var(--g); }
+  .dot.wait { background: #ffc233; box-shadow: 0 0 12px #ffc233; animation: blink 1s infinite; }
+  @keyframes blink { 50% { opacity: .25; } }
+  .stats { display: flex; gap: 10px; margin-top: 18px; }
+  .stat { flex: 1; padding: 10px 6px; border-radius: 18px; background: rgba(0,0,0,.22); border: 1px solid rgba(255,255,255,.14); }
+  .stat b { display: block; font-size: 1.25rem; color: var(--cy); }
+  .stat span { font-size: .68rem; letter-spacing: 1px; text-transform: uppercase; color: var(--mut); }
+
+  /* ===== Appairage ===== */
+  .panel { padding: 28px 22px; animation: rise .9s .08s cubic-bezier(.2,.9,.3,1) both; }
+  .steps { display: flex; justify-content: space-between; margin-bottom: 22px; }
+  .step { flex: 1; text-align: center; font-size: .72rem; color: var(--mut); position: relative; }
+  .step i { display: grid; place-items: center; width: 34px; height: 34px; margin: 0 auto 6px; border-radius: 50%; font-style: normal; font-weight: 700; font-size: .9rem;
+    background: rgba(0,0,0,.3); border: 1px solid rgba(255,255,255,.25); transition: all .3s; }
+  .step.on i { background: linear-gradient(135deg, var(--g), var(--g2)); color: #00210f; border-color: transparent; box-shadow: 0 0 18px rgba(0,230,118,.6); }
+  .step.on { color: #fff; }
+  label { display: block; font-weight: 600; font-size: .92rem; margin: 0 0 8px 4px; color: #eafff4; }
+  .field { position: relative; }
+  .field input { width: 100%; padding: 15px 18px; border-radius: 18px; font-size: 1.1rem; color: #fff; font-family: inherit; letter-spacing: .5px; outline: none;
+    background: rgba(0,0,0,.30); border: 1px solid rgba(255,255,255,.28); box-shadow: inset 0 2px 10px rgba(0,0,0,.35); transition: all .25s; }
+  .field input::placeholder { color: rgba(255,255,255,.42); }
+  .field input:focus { border-color: var(--g); box-shadow: 0 0 0 3px rgba(0,230,118,.28), inset 0 2px 10px rgba(0,0,0,.35); background: rgba(0,0,0,.38); }
+  .hint { font-size: .78rem; color: var(--mut); margin: 7px 0 0 6px; min-height: 1.2em; }
+  .btn { width: 100%; margin-top: 16px; padding: 16px; border: none; border-radius: 40px; font-family: inherit; font-size: 1.1rem; font-weight: 700; letter-spacing: .5px; color: #00210f; cursor: pointer;
+    background: linear-gradient(135deg, #5dffae, var(--g), var(--g2)); box-shadow: 0 10px 26px rgba(0,230,118,.38), inset 0 1.5px 0 rgba(255,255,255,.6); transition: transform .2s, box-shadow .2s; }
+  .btn:hover:not(:disabled) { transform: translateY(-2px) scale(1.01); box-shadow: 0 16px 34px rgba(0,230,118,.55), inset 0 1.5px 0 rgba(255,255,255,.6); }
+  .btn:active:not(:disabled) { transform: scale(.97); }
+  .btn:disabled { opacity: .65; cursor: not-allowed; }
+
+  .code-box { display: none; margin-top: 22px; padding: 20px 14px 16px; border-radius: 24px; text-align: center; background: rgba(0,0,0,.34); border: 1px dashed rgba(255,255,255,.4); }
+  .code-box.show { display: block; animation: pop .45s cubic-bezier(.2,1.3,.4,1); }
+  @keyframes pop { from { opacity: 0; transform: scale(.9); } to { opacity: 1; transform: none; } }
+  .code-label { font-size: .78rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mut); }
+  .code { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 14px 0 6px; flex-wrap: nowrap; }
+  .ch { width: clamp(30px, 9.5vw, 46px); height: clamp(42px, 12vw, 58px); display: grid; place-items: center; border-radius: 12px; font-size: clamp(1.25rem, 5.6vw, 1.9rem); font-weight: 800; font-family: 'Courier New', monospace; color: var(--g);
+    background: linear-gradient(160deg, rgba(255,255,255,.26), rgba(255,255,255,.07)); border: 1px solid rgba(255,255,255,.4); box-shadow: inset 0 1px 0 rgba(255,255,255,.65), 0 6px 14px rgba(0,0,0,.35); text-shadow: 0 0 14px rgba(0,230,118,.8); animation: pop .4s both; }
+  .dash { color: rgba(255,255,255,.55); font-weight: 800; font-size: 1.4rem; }
+  .code-hint { font-size: .82rem; color: var(--mut); margin: 6px 4px 12px; }
+  .copy { display: inline-flex; align-items: center; gap: 8px; padding: 11px 26px; border-radius: 40px; cursor: pointer; font-family: inherit; font-weight: 700; font-size: .95rem; color: #fff;
+    background: linear-gradient(160deg, rgba(255,255,255,.30), rgba(255,255,255,.08)); border: 1px solid rgba(255,255,255,.5); box-shadow: inset 0 1px 0 rgba(255,255,255,.7), 0 8px 18px rgba(0,0,0,.3); transition: all .2s; }
+  .copy:hover { box-shadow: 0 0 24px rgba(0,230,118,.55), inset 0 1px 0 rgba(255,255,255,.7); color: var(--g); }
+  .copy:active { transform: scale(.96); }
+  .bar { height: 5px; border-radius: 5px; background: rgba(255,255,255,.14); overflow: hidden; margin-top: 14px; }
+  .bar i { display: block; height: 100%; width: 100%; background: linear-gradient(90deg, var(--g), var(--cy)); transition: width 1s linear; }
+  .timer { font-size: .78rem; color: #ffd27a; margin-top: 7px; min-height: 1.1em; }
+  .done { display: none; margin-top: 22px; padding: 22px 14px; border-radius: 24px; text-align: center; background: rgba(0,230,118,.14); border: 1px solid rgba(0,230,118,.55); box-shadow: 0 0 30px rgba(0,230,118,.25); }
+  .done.show { display: block; animation: pop .5s cubic-bezier(.2,1.3,.4,1); }
+  .done h3 { font-size: 1.25rem; color: var(--g); margin-bottom: 6px; }
+  .done p { font-size: .9rem; color: var(--mut); line-height: 1.55; }
+
+  /* ===== Serveur (lien Render) ===== */
+  details.srv { margin-top: 18px; font-size: .85rem; }
+  details.srv summary { cursor: pointer; color: var(--mut); list-style: none; text-align: center; padding: 6px; }
+  details.srv summary::-webkit-details-marker { display: none; }
+  .srv-row { display: flex; gap: 8px; margin-top: 10px; }
+  .srv-row input { flex: 1; min-width: 0; padding: 11px 14px; border-radius: 14px; font-family: inherit; font-size: .85rem; color: #fff; outline: none; background: rgba(0,0,0,.32); border: 1px solid rgba(255,255,255,.28); }
+  .mini { padding: 0 14px; border-radius: 14px; border: 1px solid rgba(255,255,255,.4); background: rgba(255,255,255,.14); color: #fff; font-family: inherit; font-weight: 600; font-size: .8rem; cursor: pointer; }
+  .mini:hover { background: rgba(0,230,118,.3); }
+  .srv-msg { margin-top: 8px; font-size: .78rem; color: var(--mut); min-height: 1.1em; word-break: break-all; }
+
+  /* ===== Vidéo en boucle (non contrôlable) ===== */
+  .video { padding: 10px; animation: rise 1s .15s cubic-bezier(.2,.9,.3,1) both; }
+  .vframe { position: relative; border-radius: 22px; overflow: hidden; background: #000; line-height: 0; box-shadow: inset 0 0 0 1px rgba(255,255,255,.3); user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+  .vframe video { width: 100%; height: auto; max-height: 72vh; display: block; object-fit: contain; background: #000; pointer-events: none; }
+  .vshield { position: absolute; inset: 0; z-index: 3; background: transparent; touch-action: pan-y; }
+  .vsound { position: absolute; z-index: 4; left: 50%; bottom: 12px; transform: translateX(-50%); padding: 7px 16px; border-radius: 30px; font-size: .78rem; line-height: 1.3; white-space: nowrap; color: #fff; pointer-events: none;
+    background: rgba(0,0,0,.55); border: 1px solid rgba(255,255,255,.4); animation: blink 1.6s infinite; display: none; }
+  .vsound.show { display: block; }
+
+  /* ===== Explications ===== */
+  .help { padding: 28px 24px; max-height: 430px; overflow-y: auto; animation: rise 1s .2s cubic-bezier(.2,.9,.3,1) both; }
+  .help h2 { font-size: 1.45rem; color: var(--g); text-align: center; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,.22); }
+  .help h3 { color: #9dffcc; margin: 18px 0 8px; font-size: 1.08rem; }
+  .help p, .help li { line-height: 1.7; font-size: .92rem; color: #f0fff7; }
+  .help ul { padding-left: 22px; margin: 8px 0 12px; }
+  .help li { margin-bottom: 5px; }
+  .hl { color: var(--g); font-weight: 600; }
+  .help::-webkit-scrollbar { width: 6px; } .help::-webkit-scrollbar-thumb { background: var(--g); border-radius: 10px; } .help::-webkit-scrollbar-track { background: rgba(255,255,255,.08); border-radius: 10px; }
+
+  /* ===== Boutons liens (bas de page) ===== */
+  .links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; animation: rise 1s .25s cubic-bezier(.2,.9,.3,1) both; }
+  .link { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 62px; padding: 12px 14px; text-align: center; text-decoration: none; color: #fff; font-weight: 600; font-size: .86rem; line-height: 1.25; transition: transform .2s, box-shadow .2s; }
+  .link:hover { transform: translateY(-3px); box-shadow: inset 0 1.5px 0 rgba(255,255,255,.75), 0 0 28px rgba(0,230,118,.45), 0 24px 50px rgba(0,0,0,.5); }
+  .link:active { transform: scale(.97); }
+  .link .em { font-size: 1.35rem; }
+  .link.wide { grid-column: 1 / -1; }
+  .footer { text-align: center; color: rgba(255,255,255,.55); font-size: .82rem; margin-top: 4px; }
+  .footer span { color: var(--g); }
+
+  .toast { position: fixed; left: 50%; bottom: calc(26px + env(safe-area-inset-bottom)); transform: translate(-50%, 20px); padding: 12px 22px; border-radius: 40px; font-weight: 600; font-size: .9rem; color: #fff; opacity: 0; pointer-events: none; z-index: 9999; max-width: 90%; text-align: center; transition: all .3s; border: 1px solid rgba(255,255,255,.4); box-shadow: 0 10px 30px rgba(0,0,0,.5); }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+  canvas#fx { position: fixed; inset: 0; z-index: 9998; pointer-events: none; }
+  @media (max-width: 420px) { .panel { padding: 24px 16px; } .hero { padding: 28px 16px 22px; } .links { gap: 10px; } .link { font-size: .8rem; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; } }
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="bg-shade"></div>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+<canvas id="fx"></canvas>
+
+<div class="wrap">
+
+  <header class="ice hero">
+    <div class="brand">ƘƖƦƛ ƁƠƬ ƬЄƇӇ 🌹</div>
+    <div class="subtitle">🔗 Génère ton vrai code de jumelage WhatsApp</div>
+    <div class="pill"><span class="dot" id="dot"></span><span id="status">Vérification du serveur…</span></div>
+    <div class="stats">
+      <div class="stat"><b id="sBots">–</b><span>Bots connectés</span></div>
+      <div class="stat"><b id="sCmds">200+</b><span>Commandes</span></div>
+      <div class="stat"><b id="sPing">–</b><span>Latence</span></div>
+    </div>
+  </header>
+
+  <section class="ice panel">
+    <div class="steps">
+      <div class="step on" id="st1"><i>1</i>Numéro</div>
+      <div class="step" id="st2"><i>2</i>Code</div>
+      <div class="step" id="st3"><i>3</i>Connecté</div>
+    </div>
+
+    <label for="phone">📱 Numéro WhatsApp (avec indicatif, sans +)</label>
+    <div class="field"><input type="tel" id="phone" inputmode="numeric" autocomplete="tel" placeholder="Ex : 242061234567" maxlength="22"></div>
+    <div class="hint" id="hint">Indicatif du pays + numéro, sans espaces.</div>
+    <button class="btn" id="go">Obtenir le code</button>
+
+    <div class="code-box" id="codeBox">
+      <div class="code-label">🔑 Ton code de jumelage</div>
+      <div class="code" id="code"></div>
+      <div class="code-hint">WhatsApp → Appareils liés → Lier un appareil → Lier avec un numéro de téléphone</div>
+      <button class="copy" id="copy">📄 Copier le code</button>
+      <div class="bar"><i id="barFill"></i></div>
+      <div class="timer" id="timer"></div>
+    </div>
+
+    <div class="done" id="done">
+      <h3>🎉 CONGRATULATIONS !</h3>
+      <p>✅ Bot connecté à ton WhatsApp.<br>Écris <b>.menu</b> dans n'importe quelle discussion pour voir les commandes.</p>
+    </div>
+
+    <details class="srv">
+      <summary>⚙️ Serveur du bot (lien Render)</summary>
+      <div class="srv-row"><input type="url" id="srvUrl" placeholder="https://ton-bot.onrender.com" autocomplete="off" spellcheck="false"><button class="mini" id="srvSave">Enregistrer</button><button class="mini" id="srvTest">Tester</button></div>
+      <div class="srv-msg" id="srvMsg"></div>
+    </details>
+  </section>
+
+  <section class="ice video">
+    <div class="vframe" id="vframe">
+      <video id="vid" src="https://yourimageshare.com/ib/C98iryyQYZ.mp4" autoplay loop playsinline webkit-playsinline preload="auto"
+             disablepictureinpicture disableremoteplayback controlslist="nodownload noplaybackrate noremoteplayback nofullscreen" draggable="false" oncontextmenu="return false"></video>
+      <div class="vshield" oncontextmenu="return false"></div>
+      <div class="vsound" id="vsound">🔊 Touche l'écran pour activer le son</div>
+    </div>
+  </section>
+
+  <section class="ice help">
+    <h2>📖 Comment lier le bot</h2>
+    <p>Suis ces étapes sur ton <span class="hl">Android</span> ou ton <span class="hl">iPhone</span> pour connecter le bot ƘƖƦƛ ƁƠƬ ƬЄƇӇ 🌹 à ton WhatsApp.</p>
+    <h3>📲 Sur Android</h3>
+    <ul>
+      <li>Ouvre <strong>WhatsApp</strong> puis touche les <strong>trois points</strong> en haut à droite.</li>
+      <li>Va dans <strong>« Appareils liés »</strong>.</li>
+      <li>Touche <strong>« Lier un appareil »</strong>, puis <strong>« Lier avec un numéro de téléphone »</strong>.</li>
+      <li>Saisis le <strong>code à 8 caractères</strong> affiché sur cette page.</li>
+      <li>Le bot est connecté, la page te le confirme.</li>
+    </ul>
+    <h3>🍏 Sur iPhone</h3>
+    <ul>
+      <li>Ouvre <strong>WhatsApp</strong> et va dans <strong>« Réglages »</strong> (en bas à droite).</li>
+      <li>Choisis <strong>« Appareils liés »</strong>.</li>
+      <li>Touche <strong>« Lier un appareil »</strong> puis <strong>« Lier avec un numéro de téléphone »</strong>.</li>
+      <li>Entre le code à 8 caractères et confirme.</li>
+    </ul>
+    <p style="margin-top:14px;font-style:italic;color:#cfe9db">⚡ Le code est valable environ <strong>1 minute</strong>. S'il expire, génères-en un nouveau. Le serveur gratuit peut mettre jusqu'à 1 minute à se réveiller.</p>
+  </section>
+
+  <nav class="links" aria-label="Liens officiels">
+    <a class="ice ice-sm link" href="https://t.me/+mQ3aQpCsEqI0YmY0" target="_blank" rel="noopener"><span class="em">📢</span>Suivre la chaîne Telegram</a>
+    <a class="ice ice-sm link" href="https://whatsapp.com/channel/0029Vb7WJzp84OmBD0fEEJ2X" target="_blank" rel="noopener"><span class="em">📢</span>Suivre la chaîne WhatsApp</a>
+    <a class="ice ice-sm link" href="https://t.me/+2JDC_Be4_ww1N2Vk" target="_blank" rel="noopener"><span class="em">1️⃣</span>Rejoindre le groupe 1</a>
+    <a class="ice ice-sm link" href="https://t.me/+Z-P_xjUgJjU0MjM0" target="_blank" rel="noopener"><span class="em">2️⃣</span>Rejoindre le groupe 2</a>
+    <a class="ice ice-sm link wide" href="https://chat.whatsapp.com/IP0nFB79rMDF0nvFSMXtDR" target="_blank" rel="noopener"><span class="em">🌐</span>Rejoindre le groupe WhatsApp</a>
+  </nav>
+
+  <div class="footer">Créé par <span> ༑𝐌𝐑⌁⃰ ƘƖ𝐑𝚫̊͜͡ 𝐃𝚵𝐕 🌐 </span> • Tous droits réservés</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function () {
+  'use strict';
+  // ====== 👇 LIEN RENDER DU BOT (modifiable aussi dans « Serveur du bot » sur la page) ======
+  var DEFAULT_RENDER_URL = 'https://kira-tech-bot-power.onrender.com';
+  // ===========================================================================================
+
+  var $ = function (id) { return document.getElementById(id); };
+  var store = { get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  function normUrl(u) { u = (u || '').trim(); if (!u) return ''; if (!/^https?:\/\//i.test(u)) u = 'https://' + u; try { return new URL(u).origin; } catch (e) { return ''; } }
+  var BASE = normUrl(store.get('kira_render')) || DEFAULT_RENDER_URL;
+
+  var toastEl = $('toast'), toastT;
+  function toast(msg, err) { toastEl.textContent = msg; toastEl.style.background = err ? 'rgba(200,45,45,.92)' : 'rgba(0,150,90,.92)'; toastEl.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(function () { toastEl.classList.remove('show'); }, 3200); }
+  function setStatus(cls, txt) { $('dot').className = 'dot ' + cls; $('status').textContent = txt; }
+  function setStep(n) { for (var i = 1; i <= 3; i++) $('st' + i).classList.toggle('on', i <= n); }
+
+  function http(path, opts, ms) {
+    var ctl = new AbortController(), t = setTimeout(function () { ctl.abort(); }, ms || 20000);
+    opts = opts || {}; opts.signal = ctl.signal;
+    return fetch(BASE + path, opts).then(function (r) { return r.json(); }).then(function (d) { clearTimeout(t); return d; }, function (e) { clearTimeout(t); throw e; });
+  }
+
+  /* ---------- Statut du serveur (réveille Render si besoin) ---------- */
+  var wakeTries = 0;
+  function refreshStatus(quiet) {
+    var t0 = Date.now();
+    return http('/api/status', null, 70000).then(function (d) {
+      wakeTries = 0; setStatus('ok', 'Serveur en ligne');
+      $('sBots').textContent = d.connectedCount; if (d.commands) $('sCmds').textContent = d.commands; $('sPing').textContent = (Date.now() - t0) + ' ms';
+    }, function () {
+      if (wakeTries++ < 12) { setStatus('wait', 'Réveil du serveur… (jusqu\'à 1 min)'); setTimeout(function () { refreshStatus(true); }, 5000); }
+      else { setStatus('', 'Serveur injoignable'); if (!quiet) toast('Serveur injoignable. Vérifie le lien Render.', true); }
+    });
+  }
+
+  /* ---------- Numéro ---------- */
+  var phone = $('phone');
+  function digitsOf(v) { var d = String(v || '').replace(/\D/g, ''); if (d.indexOf('00') === 0) d = d.slice(2); return d; }
+  phone.addEventListener('input', function () {
+    this.value = this.value.replace(/[^\d+\s]/g, '');
+    var d = digitsOf(this.value);
+    $('hint').textContent = !d ? 'Indicatif du pays + numéro, sans espaces.' : (d.length < 8 ? 'Numéro trop court…' : d.length > 15 ? 'Numéro trop long.' : 'Numéro envoyé : +' + d);
+  });
+  phone.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); $('go').click(); } });
+  var saved = store.get('kira_phone'); if (saved) phone.value = saved;
+
+  /* ---------- Code de jumelage (vrai code renvoyé par le bot) ---------- */
+  var current = '', pollT, countT, busy = false;
+  function stopTimers() { clearInterval(pollT); clearInterval(countT); }
+  function showCode(code) {
+    current = code; var box = $('code'); box.textContent = '';
+    var chars = code.replace(/[^A-Za-z0-9]/g, '').split('');
+    chars.forEach(function (c, i) {
+      if (i === 4) { var s = document.createElement('span'); s.className = 'dash'; s.textContent = '–'; box.appendChild(s); }
+      var e = document.createElement('div'); e.className = 'ch'; e.style.animationDelay = (i * 45) + 'ms'; e.textContent = c; box.appendChild(e);
+    });
+    $('codeBox').classList.add('show'); $('done').classList.remove('show'); setStep(2);
+  }
+  function countdown(sec) {
+    var left = sec; $('barFill').style.transition = 'none'; $('barFill').style.width = '100%';
+    setTimeout(function () { $('barFill').style.transition = 'width 1s linear'; }, 30);
+    countT = setInterval(function () {
+      left--; $('barFill').style.width = Math.max(0, left / sec * 100) + '%';
+      $('timer').textContent = left > 0 ? '⏳ Code valable encore ' + left + ' s' : '⌛ Si le code est refusé, génère-en un nouveau.';
+      if (left < -180) stopTimers();
+    }, 1000);
+  }
+  function watch(d, sec) {
+    stopTimers(); countdown(sec || 60); var tries = 0;
+    pollT = setInterval(function () {
+      tries++;
+      http('/api/status?phone=' + d, null, 15000).then(function (s) {
+        if (s.status === 'connected') { stopTimers(); success(); }
+        else if (s.status === 'disconnected' && tries > 4) { stopTimers(); $('codeBox').classList.remove('show'); setStep(1); toast('Code expiré. Clique sur « Obtenir le code ».', true); }
+      }, function () {});
+      if (tries > 80) stopTimers();
+    }, 3000);
+  }
+  function success() {
+    $('codeBox').classList.remove('show'); $('done').classList.add('show'); setStep(3);
+    setStatus('ok', 'Bot connecté ✅'); toast('🎉 Bot connecté !'); confetti(); refreshStatus(true);
+  }
+
+  $('go').addEventListener('click', function () {
+    if (busy) return;
+    var d = digitsOf(phone.value);
+    if (d.length < 8 || d.length > 15) { toast('Numéro invalide. Ex : 242061234567', true); phone.focus(); return; }
+    store.set('kira_phone', d); busy = true; stopTimers();
+    var btn = $('go'); btn.disabled = true; btn.textContent = '⏳ Génération du code…'; $('codeBox').classList.remove('show'); $('done').classList.remove('show');
+    http('/api/pair', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ phone: d }) }, 100000).then(function (r) {
+      if (r.success && r.alreadyConnected) { success(); }
+      else if (r.success && r.code) { showCode(r.code); setStatus('wait', 'En attente de la saisie du code…'); toast('Code généré ! Saisis-le dans WhatsApp.'); watch(d, r.expiresIn); }
+      else toast(r.error || 'Impossible de générer le code. Réessaie.', true);
+    }).catch(function () { toast('Serveur injoignable ou en réveil. Réessaie dans un instant.', true); wakeTries = 0; refreshStatus(true); })
+      .then(function () { busy = false; btn.disabled = false; btn.textContent = 'Obtenir le code'; });
+  });
+
+  $('copy').addEventListener('click', function () {
+    if (!current) { toast('Aucun code à copier.', true); return; }
+    function fb() { var ta = document.createElement('textarea'); ta.value = current; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); toast('Code copié !'); } catch (e) { toast('Copie impossible', true); } document.body.removeChild(ta); }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(current).then(function () { toast('Code copié !'); }, fb); else fb();
+  });
+
+  /* ---------- Serveur Render ---------- */
+  $('srvUrl').value = BASE;
+  $('srvSave').addEventListener('click', function () {
+    var u = normUrl($('srvUrl').value); if (!u) { $('srvMsg').textContent = '❌ Lien invalide.'; return; }
+    BASE = u; store.set('kira_render', u); $('srvUrl').value = u; $('srvMsg').textContent = '✅ Enregistré : ' + u; wakeTries = 0; refreshStatus();
+  });
+  $('srvTest').addEventListener('click', function () {
+    var u = normUrl($('srvUrl').value) || BASE, old = BASE; BASE = u; $('srvMsg').textContent = '⏳ Test en cours…';
+    http('/api/status', null, 70000).then(function (d) { $('srvMsg').textContent = '✅ Serveur OK · ' + d.connectedCount + ' bot(s) connecté(s)'; }, function () { $('srvMsg').textContent = '❌ Aucune réponse de ' + u; }).then(function () { BASE = old; });
+  });
+
+  /* ---------- Vidéo : lecture continue, aucun contrôle, son d'origine ---------- */
+  var vid = $('vid'), vs = $('vsound');
+  vid.controls = false; vid.loop = true;
+  function tryPlay() { var p = vid.play(); if (p && p.catch) p.catch(function () {}); }
+  function startVideo() {
+    vid.muted = false;
+    var p = vid.play();
+    if (p && p.then) p.then(function () { vs.classList.remove('show'); }, function () { vid.muted = true; tryPlay(); vs.classList.add('show'); });
+  }
+  function unmute() { if (vid.muted) { vid.muted = false; tryPlay(); } vs.classList.remove('show'); ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(function (e) { document.removeEventListener(e, unmute, true); }); }
+  ['pointerdown', 'touchstart', 'keydown', 'click'].forEach(function (e) { document.addEventListener(e, unmute, true); });
+  vid.addEventListener('pause', function () { if (!document.hidden) setTimeout(tryPlay, 50); });
+  vid.addEventListener('ended', function () { vid.currentTime = 0; tryPlay(); });
+  vid.addEventListener('stalled', tryPlay); vid.addEventListener('canplay', function () { if (vid.paused) tryPlay(); });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
+  document.addEventListener('contextmenu', function (e) { if (e.target.closest('#vframe')) e.preventDefault(); });
+  startVideo();
+
+  /* ---------- Confettis ---------- */
+  function confetti() {
+    var cv = $('fx'), c = cv.getContext('2d'); cv.width = innerWidth; cv.height = innerHeight;
+    var cols = ['#00e676', '#7ae0ff', '#ffffff', '#b388ff', '#ffd54f'], ps = [];
+    for (var i = 0; i < 110; i++) ps.push({ x: innerWidth / 2, y: innerHeight * .55, vx: (Math.random() - .5) * 14, vy: -Math.random() * 15 - 4, s: Math.random() * 6 + 3, c: cols[i % cols.length], r: Math.random() * 6 });
+    var f = 0; (function tick() { c.clearRect(0, 0, cv.width, cv.height); ps.forEach(function (p) { p.vy += .35; p.x += p.vx; p.y += p.vy; p.r += .2; c.save(); c.translate(p.x, p.y); c.rotate(p.r); c.fillStyle = p.c; c.fillRect(-p.s / 2, -p.s / 2, p.s, p.s * .6); c.restore(); }); if (++f < 130) requestAnimationFrame(tick); else c.clearRect(0, 0, cv.width, cv.height); })();
+  }
+
+  refreshStatus(); setInterval(function () { if (!busy) refreshStatus(true); }, 30000);
+})();
+</script>
+</body>
+</html>
